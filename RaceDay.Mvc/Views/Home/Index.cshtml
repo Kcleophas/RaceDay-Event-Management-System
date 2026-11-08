@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="raceday-hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <span class="hero-eyebrow">
+            YOUR RACE. YOUR DAY. YOUR RESULTS.
+        </span>
+
+        <h1>
+            Every race has a story.<br />
+            <span>Make yours count.</span>
+        </h1>
+
+        <p>
+            Discover racing events, manage enrolments and
+            explore race results — all in one place.
+        </p>
+
+        <div class="hero-actions">
+            <a asp-controller="Home"
+               asp-action="Explore"
+               class="btn-raceday">
+                Explore RaceDay
+            </a>
+
+            <a asp-controller="Home"
+               asp-action="About"
+               class="btn-outline">
+                Discover the platform
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div>
+                <strong>01</strong>
+                <span>Find your race</span>
+            </div>
+            <div>
+                <strong>02</strong>
+                <span>Join the action</span>
+            </div>
+            <div>
+                <strong>03</strong>
+                <span>Track results</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="race-search">
+    <h2>Find your next race</h2>
+    <p>Search for events and discover your next challenge.</p>
+
+    <form asp-controller="Home" asp-action="Explore" method="get"
+          class="search-grid">
+        <div>
+            <label for="raceSearch">Search</label>
+            <input id="raceSearch" name="search"
+                   type="search"
+                   placeholder="Race name, location or city..." />
+        </div>
+
+        <div>
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="">All countries</option>
+                <option value="South Africa">South Africa</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="raceType">Race type</label>
+            <select id="raceType" name="raceType">
+                <option value="">All types</option>
+                <option value="Running">Running</option>
+                <option value="Trail">Trail running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Marathon">Marathon</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-raceday search-button">
+            Find races
+        </button>
+    </form>
+</section>
+
+<section class="race-features">
+    <div class="section-heading">
+        <div>
+            <span class="hero-eyebrow">YOUR RACING JOURNEY</span>
+            <h2>Everything starts at the starting line.</h2>
+        </div>
+        <p>One platform. Every step forward.</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature-card">
+            <div class="feature-image feature-image-one"></div>
+            <div class="feature-body">
+                <span class="feature-number">01 / DISCOVER</span>
+                <h3>Race Categories</h3>
+                <p>Find the right type of event for your racing goals.</p>
+                <a asp-controller="Categories" asp-action="Index">
+                    Explore categories →
+                </a>
+            </div>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-image feature-image-two"></div>
+            <div class="feature-body">
+                <span class="feature-number">02 / GET INVOLVED</span>
+                <h3>Racing Events</h3>
+                <p>Discover events and find your next challenge.</p>
+                <a asp-controller="Events" asp-action="Index">
+                    Discover events →
+                </a>
+            </div>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-image feature-image-three"></div>
+            <div class="feature-body">
+                <span class="feature-number">03 / TRACK PROGRESS</span>
+                <h3>Race Results</h3>
+                <p>Explore results and follow racing performance.</p>
+                <a asp-controller="Results" asp-action="Index">
+                    Explore results →
+                </a>
+            </div>
+        </article>
+    </div>
+</section>

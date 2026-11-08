@@ -1,0 +1,1074 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+* =========================================
+RACEDAY PROFESSIONAL HOME PAGE
+========================================= */
+
+:root {
+    --race-navy: #101b32;
+    --race-navy-light: #182944;
+    --race-blue: #2878f0;
+    --race-lime: #c9f36a;
+    --race-text: #1b2740;
+    --race-muted: #66738a;
+    --race-background: #f5f7fb;
+    --race-border: #e4e9f1;
+}
+
+body {
+    margin-bottom: 0;
+    color: var(--race-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.65;
+}
+
+.raceday-hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 40px;
+    min-height: 490px;
+    padding: 65px clamp(24px, 6vw, 88px);
+    overflow: hidden;
+    background: radial-gradient(ellipse at 80% 20%, rgba(40, 120, 240, 0.24), transparent 38%), linear-gradient(125deg, #101b32, #182944);
+    color: #fff;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 660px;
+}
+
+.hero-eyebrow,
+.section-eyebrow {
+    display: inline-block;
+    margin-bottom: 17px;
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-eyebrow {
+    color: var(--race-lime);
+}
+
+.raceday-hero h1 {
+    margin: 0 0 22px;
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+    .raceday-hero h1 span {
+        color: var(--race-lime);
+    }
+
+.raceday-hero .hero-content > p {
+    max-width: 550px;
+    margin-bottom: 28px;
+    color: #d3dced;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.btn-raceday-primary,
+.btn-raceday-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.btn-raceday-primary {
+    background: var(--race-lime);
+    color: var(--race-navy);
+}
+
+    .btn-raceday-primary:hover {
+        transform: translateY(-2px);
+        background: #dcffa0;
+        color: var(--race-navy);
+    }
+
+.btn-raceday-secondary {
+    border-color: #61708a;
+    color: #fff;
+}
+
+    .btn-raceday-secondary:hover {
+        background: rgba(255, 255, 255, .09);
+        color: #fff;
+    }
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 34px;
+    color: #b8c6db;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--race-lime);
+}
+
+.hero-art {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    isolation: isolate;
+}
+
+.art-circle {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 50%;
+}
+
+.circle-one {
+    width: 310px;
+    height: 310px;
+}
+
+.circle-two {
+    width: 235px;
+    height: 235px;
+}
+
+.race-number-card {
+    width: min(245px, 80%);
+    padding: 27px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 13px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .04));
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .2);
+    transform: rotate(-5deg);
+}
+
+.race-card-label {
+    color: var(--race-lime);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.race-number {
+    margin: 4px 0;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -7px;
+}
+
+.race-card-line {
+    height: 5px;
+    margin: 15px 0;
+    background: linear-gradient(90deg, var(--race-lime) 0 65%, #fff 65%);
+}
+
+.race-card-caption {
+    color: #d7e2f3;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.floating-tag {
+    position: absolute;
+    padding: 10px 13px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 5px;
+    background: #233653;
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.tag-top {
+    top: 16%;
+    right: 0;
+}
+
+.tag-bottom {
+    bottom: 12%;
+    left: 0;
+}
+
+.features-section {
+    padding: 75px clamp(24px, 6vw, 88px) 85px;
+    background: var(--race-background);
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.section-eyebrow {
+    margin-bottom: 10px;
+    color: var(--race-blue);
+}
+
+.section-heading h2,
+.raceday-bottom h2 {
+    margin: 0;
+    color: var(--race-navy);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+    .section-heading h2 span {
+        color: var(--race-blue);
+    }
+
+.section-heading > p {
+    max-width: 360px;
+    margin: 0;
+    color: var(--race-muted);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    padding: 25px 22px;
+    border: 1px solid var(--race-border);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(20, 39, 70, .035);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(20, 39, 70, .09);
+    }
+
+.feature-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.feature-icon {
+    display: grid;
+    width: 47px;
+    height: 47px;
+    place-items: center;
+    border-radius: 9px;
+    font-size: .85rem;
+    font-weight: 900;
+}
+
+.icon-blue {
+    background: #e7f0ff;
+    color: #2466d4;
+}
+
+.icon-lime {
+    background: #eff9d9;
+    color: #527b0a;
+}
+
+.icon-purple {
+    background: #f0eaff;
+    color: #7550c8;
+}
+
+.icon-orange {
+    background: #fff0e5;
+    color: #bf5b1a;
+}
+
+.feature-arrow {
+    color: #9aa7ba;
+    font-size: 1.3rem;
+}
+
+.feature-label {
+    margin-bottom: 6px;
+    color: var(--race-muted);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.feature-card h3 {
+    margin: 0 0 10px;
+    color: var(--race-navy);
+    font-size: 1.17rem;
+    font-weight: 800;
+}
+
+.feature-card p {
+    margin-bottom: 23px;
+    color: var(--race-muted);
+    font-size: .86rem;
+    line-height: 1.8;
+}
+
+.feature-link,
+.bottom-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    align-self: flex-start;
+    margin-top: auto;
+    color: var(--race-blue);
+    font-size: .83rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+    .feature-link:hover,
+    .bottom-link:hover {
+        color: #1458c5;
+        text-decoration: underline;
+    }
+
+.raceday-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    padding: 65px clamp(24px, 6vw, 88px);
+    background: #fff;
+}
+
+    .raceday-bottom > div:first-child,
+    .bottom-copy {
+        max-width: 490px;
+    }
+
+    .raceday-bottom h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+.bottom-copy p {
+    margin-bottom: 20px;
+    color: var(--race-muted);
+    line-height: 1.9;
+}
+
+@media (max-width: 1000px) {
+    .raceday-hero {
+        grid-template-columns: 1fr .75fr;
+        gap: 20px;
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .raceday-hero {
+        grid-template-columns: 1fr;
+        padding: 48px 22px;
+    }
+
+        .raceday-hero h1 {
+            font-size: clamp(2.4rem, 10vw, 3.4rem);
+            letter-spacing: -1.5px;
+        }
+
+    .hero-art {
+        min-height: 300px;
+    }
+
+    .circle-one {
+        width: 270px;
+        height: 270px;
+    }
+
+    .circle-two {
+        width: 205px;
+        height: 205px;
+    }
+
+    .tag-top {
+        right: 2%;
+    }
+
+    .tag-bottom {
+        left: 2%;
+    }
+
+    .features-section {
+        padding: 55px 20px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: 240px;
+    }
+
+    .raceday-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        padding: 50px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .feature-card,
+    .btn-raceday-primary,
+    .btn-raceday-secondary {
+        transition: none;
+    }
+}
+
+/* ===== RACEDAY BLUE HOMEPAGE ===== */
+
+:root {
+    --race-navy: #08172e;
+    --race-blue: #0878d1;
+    --race-light-blue: #70c8ff;
+    --race-white: #ffffff;
+    --race-muted: #b9c7d9;
+    --race-panel: #10233e;
+}
+
+body {
+    margin: 0;
+    background: var(--race-navy);
+    color: var(--race-white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.raceday-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    padding: 80px max(6%, calc((100% - 1200px) / 2));
+    overflow: hidden;
+    background: url("/images/race-hero.jpg") center 45% / cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient( 90deg, rgba(5, 17, 37, 0.96) 0%, rgba(5, 17, 37, 0.82) 48%, rgba(5, 17, 37, 0.48) 100% );
+}
+
+.hero-content {
+    max-width: 780px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    color: var(--race-light-blue);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    margin: 0 0 22px;
+    color: white;
+    font-size: clamp(38px, 5vw, 66px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+    .hero-content h1 span {
+        color: var(--race-light-blue);
+    }
+
+.hero-content > p {
+    max-width: 590px;
+    color: #d6e1ef;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.btn-raceday,
+.btn-outline {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 23px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-raceday {
+    color: white;
+    background: var(--race-blue);
+    border: 1px solid var(--race-blue);
+}
+
+    .btn-raceday:hover {
+        background: #0565b1;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.btn-outline {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(8, 23, 46, 0.35);
+}
+
+    .btn-outline:hover {
+        background: white;
+        color: var(--race-navy);
+    }
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-top: 42px;
+}
+
+    .hero-stats div {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .hero-stats strong {
+        font-size: 28px;
+        color: white;
+    }
+
+    .hero-stats span {
+        color: var(--race-muted);
+        font-size: 13px;
+    }
+
+/* SEARCH PANEL */
+
+.race-search {
+    max-width: 1200px;
+    margin: -35px auto 65px;
+    position: relative;
+    padding: 32px;
+    border: 1px solid #233d5d;
+    border-radius: 14px;
+    background: #10213a;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+    .race-search h2 {
+        margin: 0 0 8px;
+        font-size: 27px;
+    }
+
+    .race-search > p,
+    .section-heading > p {
+        color: var(--race-muted);
+    }
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+    margin-top: 25px;
+}
+
+    .search-grid label {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 14px;
+    }
+
+    .search-grid input,
+    .search-grid select {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px;
+        border: 1px solid #38506e;
+        border-radius: 6px;
+        background: #0a192e;
+        color: white;
+        box-sizing: border-box;
+    }
+
+        .search-grid input::placeholder {
+            color: #9aabc0;
+        }
+
+    .search-grid .search-button {
+        min-height: 46px;
+    }
+
+/* FEATURE CARDS */
+
+.race-features {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 90px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+    .section-heading h2 {
+        font-size: clamp(26px, 3vw, 38px);
+        margin: 0;
+    }
+
+    .section-heading > p {
+        max-width: 280px;
+    }
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.feature-card {
+    overflow: hidden;
+    border: 1px solid #233d5d;
+    border-radius: 12px;
+    background: var(--race-panel);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--race-blue);
+    }
+
+.feature-image {
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+}
+
+.feature-image-one {
+    background-image: url("/images/race-hero.jpg");
+}
+
+.feature-image-two {
+    background-image: url("/images/race-hero.jpg");
+    background-position: 65% center;
+}
+
+.feature-image-three {
+    background-image: url("/images/race-hero.jpg");
+    background-position: 35% center;
+}
+
+.feature-body {
+    padding: 23px;
+}
+
+.feature-number {
+    color: var(--race-light-blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.feature-body h3 {
+    margin: 12px 0;
+    font-size: 22px;
+}
+
+.feature-body p {
+    color: var(--race-muted);
+    line-height: 1.7;
+}
+
+.feature-body a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--race-light-blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+    .feature-body a:hover {
+        text-decoration: underline;
+    }
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 900px) {
+    .search-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .race-search {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .raceday-hero {
+        min-height: 520px;
+        padding: 65px 24px;
+    }
+
+    .hero-content h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
+
+    .race-search {
+        padding: 22px;
+        margin-top: -20px;
+    }
+
+    .search-grid,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        display: block;
+    }
+}
+
+/* Improve the RaceDay navigation */
+.navbar {
+    min-height: 76px;
+    padding: 12px 4%;
+    background: #07162c !important;
+    border-bottom: 1px solid #203b5c;
+}
+
+    .navbar .navbar-brand {
+        color: #ffffff !important;
+        font-size: 25px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    .navbar .nav-link {
+        color: #e5eefb !important;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 12px 16px !important;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #70c8ff !important;
+        }
+
+.navbar-toggler {
+    border-color: #70c8ff;
+}
+
+/* RaceDay feature card images */
+.feature-image-one {
+    background-image: url("/images/race-categories.jpg");
+}
+
+.feature-image-two {
+    background-image: url("/images/race-events.jpg");
+}
+
+.feature-image-three {
+    background-image: url("/images/race-results.jpg");
+}
+
+.feature-image {
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Improve feature card readability */
+.feature-card {
+    background: #10233e;
+    border: 1px solid #294666;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature-body h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+.feature-body p {
+    color: #c5d4e7;
+    line-height: 1.7;
+}
+
+.feature-body a {
+    color: #70c8ff;
+    font-weight: 700;
+}
+
+/* Give the hero more impact */
+.raceday-hero {
+    min-height: 620px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+    .hero-content h1 {
+        font-size: clamp(42px, 5vw, 68px);
+        line-height: 1.08;
+    }
+
+    .hero-content > p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+.hero-stats strong {
+    font-size: 30px;
+}
+
+/* Wider feature section */
+.race-features {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 24px 90px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.feature-image {
+    height: 230px;
+}
+
+.feature-body {
+    padding: 24px;
+}
+
+    .feature-body h3 {
+        color: #ffffff;
+        font-size: 23px;
+    }
+
+/* EXPLORE RACEDAY */
+
+.explore-header {
+    padding: 65px 8%;
+    background: #f2f7fa;
+    text-align: center;
+}
+
+    .explore-header h1 {
+        color: #0e3654;
+        font-size: 42px;
+        margin: 15px 0;
+    }
+
+    .explore-header p {
+        color: #536575;
+    }
+
+.explore-search {
+    padding: 30px 8%;
+    background: #ffffff;
+}
+
+    .explore-search form {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .explore-search input,
+    .explore-search select {
+        flex: 1;
+        min-width: 180px;
+        padding: 13px;
+        border: 1px solid #d4e0e8;
+        border-radius: 6px;
+    }
+
+.explore-events {
+    padding: 45px 8%;
+}
+
+    .explore-events .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.event-card {
+    background: #ffffff;
+    border: 1px solid #e1e9ee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.event-card-top {
+    background: #0e7aa6;
+    color: #ffffff;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.event-card-body {
+    padding: 24px;
+}
+
+    .event-card-body h3 {
+        color: #0e3654;
+        margin-bottom: 18px;
+    }
+
+    .event-card-body p {
+        color: #536575;
+        margin-bottom: 12px;
+    }
+
+    .event-card-body .btn-raceday {
+        display: inline-block;
+        margin-top: 12px;
+        text-decoration: none;
+        padding: 11px 18px;
+    }
+
+.api-error {
+    color: #b42318;
+}
+
+@media (max-width: 600px) {
+    .explore-header h1 {
+        font-size: 32px;
+    }
+
+    .explore-events .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

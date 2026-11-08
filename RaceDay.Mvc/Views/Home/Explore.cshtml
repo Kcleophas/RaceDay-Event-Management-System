@@ -1,0 +1,92 @@
+﻿@model List<RaceDay.Mvc.Models.EventViewModel>
+
+@{
+    ViewData["Title"] = "Explore Races";
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">FIND YOUR NEXT CHALLENGE</span>
+    <h1>Explore RaceDay</h1>
+    <p>Discover events, choose your distance and get ready to race.</p>
+</section>
+
+<section class="explore-search">
+    <form asp-controller="Home" asp-action="Explore" method="get">
+
+        <input type="search"
+               name="search"
+               value="@ViewBag.Search"
+               placeholder="Search event names..." />
+
+        <select name="raceType">
+            <option value="">All race types</option>
+            <option value="Road Race">Road Race</option>
+            <option value="Trail Running">Trail Running</option>
+            <option value="Running">Running</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Marathon">Marathon</option>
+        </select>
+
+        <button type="submit" class="btn-raceday">
+            Search races
+        </button>
+    </form>
+</section>
+
+<section class="explore-events">
+
+    <div class="section-heading">
+        <h2>Available Race Events</h2>
+        <span>@Model.Count event(s) found</span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.ApiError as string))
+    {
+        <p class="api-error">@ViewBag.ApiError</p>
+    }
+    else if (Model.Count == 0)
+    {
+        <p>No events found. Please check back for upcoming races.</p>
+    }
+    else
+    {
+        <div class="event-grid">
+
+            @foreach (var race in Model)
+            {
+                <article class="event-card">
+
+                    <div class="event-card-top">
+                        <span>@race.EventType</span>
+                        <span>@race.DistanceKm km</span>
+                    </div>
+
+                    <div class="event-card-body">
+
+                        <h3>@race.EventName</h3>
+
+                        <p>
+                            <strong>Event date:</strong>
+                            @race.EventDate.ToString("dd MMMM yyyy")
+                        </p>
+
+                        <p>
+                            <strong>Distance:</strong>
+                            @race.DistanceKm km
+                        </p>
+
+                        <a asp-controller="Home"
+                           asp-action="Details"
+                           asp-route-id="@race.EventID"
+                           class="btn-raceday">
+                            View Event
+                        </a>
+
+                    </div>
+                </article>
+            }
+
+        </div>
+    }
+
+</section>

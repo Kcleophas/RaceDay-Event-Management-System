@@ -1,0 +1,113 @@
+﻿@model List<RaceDay.Mvc.Models.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Manage Categories";
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">RACEDAY MANAGEMENT</span>
+    <h1>Manage Categories</h1>
+    <p>View and manage participant race categories.</p>
+</section>
+
+<section class="explore-events">
+
+    <div class="section-heading">
+        <h2>All Race Categories</h2>
+
+        <a asp-controller="Organiser"
+           asp-action="CreateCategory"
+           class="btn btn-primary">
+            + Create Category
+        </a>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (ViewBag.ApiError != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ApiError
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <p>No categories are currently available.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Event ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td>@category.CategoryID</td>
+                            <td>@category.CategoryName</td>
+                            <td>
+                                @if (category.EventID <= 0)
+                                {
+                                    <span class="text-warning">
+                                        Not assigned
+                                    </span>
+                                }
+                                else
+                                {
+                                    @category.EventID
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="EditCategory"
+                                   asp-route-id="@category.CategoryID"
+                                   class="btn btn-sm btn-warning">
+                                    Edit
+                                </a>
+
+                                <form asp-action="DeleteCategory"
+                                      asp-route-id="@category.CategoryID"
+                                      method="post"
+                                      style="display:inline;"
+                                      onsubmit="return confirm('Are you sure you want to delete this category?');">
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <a asp-controller="Organiser"
+       asp-action="Dashboard"
+       class="btn btn-secondary">
+        Back to Dashboard
+    </a>
+
+</section>

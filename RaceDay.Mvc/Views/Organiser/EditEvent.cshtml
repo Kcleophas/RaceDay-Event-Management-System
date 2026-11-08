@@ -1,0 +1,91 @@
+﻿
+@model RaceDay.Mvc.Models.EventViewModel
+
+@{
+    ViewData["Title"] = "Edit Race Event";
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">RACEDAY MANAGEMENT</span>
+    <h1>Edit Race Event</h1>
+    <p>Update the details of this sporting event.</p>
+</section>
+
+<section class="explore-events">
+    <div class="card p-4 shadow-sm">
+
+        <form asp-controller="Organiser"
+              asp-action="EditEvent"
+              asp-route-id="@Model.EventID"
+              method="post">
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3">
+            </div>
+
+            <input type="hidden" asp-for="EventID" />
+
+            <div class="mb-3">
+                <label asp-for="EventName" class="form-label">
+                    Event Name
+                </label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventDate" class="form-label">
+                    Event Date
+                </label>
+                <input asp-for="EventDate"
+                       type="date"
+                       value="@Model.EventDate.ToString("yyyy-MM-dd")"
+                       class="form-control" />
+                <span asp-validation-for="EventDate"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DistanceKm" class="form-label">
+                    Distance (KM)
+                </label>
+                <input asp-for="DistanceKm"
+                       type="number"
+                       step="0.01"
+                       min="0.01"
+                       class="form-control" />
+                <span asp-validation-for="DistanceKm"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventType" class="form-label">
+                    Event Type
+                </label>
+                <select asp-for="EventType" class="form-select">
+                    <option value="Road Race">Road Race</option>
+                    <option value="Trail Running">Trail Running</option>
+                    <option value="Marathon">Marathon</option>
+                    <option value="Fun Run">Fun Run</option>
+                    <option value="Cycling">Cycling</option>
+                </select>
+                <span asp-validation-for="EventType"
+                      class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Changes
+            </button>
+
+            <a asp-action="Events" class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
