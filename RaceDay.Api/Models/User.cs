@@ -18,5 +18,7 @@ namespace RaceDay.Api.Models
 
         [Required]
         public string Role { get; set; } = string.Empty;
+
+        public string? ProfilePictureBlobName { get; set; }
     }
 }

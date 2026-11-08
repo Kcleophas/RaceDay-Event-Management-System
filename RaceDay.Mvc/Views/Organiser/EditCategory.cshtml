@@ -1,0 +1,78 @@
+﻿
+@model RaceDay.Mvc.Models.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Edit Category";
+
+    var events = ViewBag.Events as List<RaceDay.Mvc.Models.EventViewModel>
+                 ?? new List<RaceDay.Mvc.Models.EventViewModel>();
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">RACEDAY MANAGEMENT</span>
+    <h1>Edit Race Category</h1>
+    <p>Update the category name or its associated race event.</p>
+</section>
+
+<section class="explore-events">
+    <div class="card p-4 shadow-sm">
+
+        <form asp-controller="Organiser"
+              asp-action="EditCategory"
+              asp-route-id="@Model.CategoryID"
+              method="post">
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3">
+            </div>
+
+            <input type="hidden" asp-for="CategoryID" />
+
+            <div class="mb-3">
+                <label asp-for="CategoryName" class="form-label">
+                    Category Name
+                </label>
+
+                <input asp-for="CategoryName"
+                       class="form-control" />
+
+                <span asp-validation-for="CategoryName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventID" class="form-label">
+                    Select Race Event
+                </label>
+
+                <select asp-for="EventID" class="form-select">
+                    <option value="0">-- Select a Race Event --</option>
+
+                    @foreach (var raceEvent in events)
+                    {
+                        <option value="@raceEvent.EventID">
+                            @raceEvent.EventName
+                            (ID: @raceEvent.EventID)
+                        </option>
+                    }
+                </select>
+
+                <span asp-validation-for="EventID"
+                      class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Changes
+            </button>
+
+            <a asp-action="Categories" class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

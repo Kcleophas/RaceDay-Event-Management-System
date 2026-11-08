@@ -1,0 +1,78 @@
+﻿
+@model List<RaceDay.Mvc.Models.EventViewModel>
+
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">YOUR RACING JOURNEY</span>
+    <h1>My Events</h1>
+    <p>View and manage the races you have joined.</p>
+</section>
+
+<section class="explore-events">
+
+    <div class="section-heading">
+        <h2>Your Enrolled Races</h2>
+        <span>@Model.Count event(s)</span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.ApiError as string))
+    {
+        <p class="api-error">@ViewBag.ApiError</p>
+    }
+    else if (Model.Count == 0)
+    {
+        <div class="event-card">
+            <div class="event-card-body">
+                <h3>No enrolled events yet</h3>
+                <p>You haven't joined any races yet.</p>
+
+                <a asp-controller="Home"
+                   asp-action="Explore"
+                   class="btn-raceday">
+                    Explore Races
+                </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="event-grid">
+            @foreach (var race in Model)
+            {
+                <article class="event-card">
+
+                    <div class="event-card-top">
+                        <span>@race.EventType</span>
+                        <span>@race.DistanceKm km</span>
+                    </div>
+
+                    <div class="event-card-body">
+                        <h3>@race.EventName</h3>
+
+                        <p>
+                            <strong>Event date:</strong>
+                            @race.EventDate.ToString("dd MMMM yyyy")
+                        </p>
+
+                        <p>
+                            <strong>Distance:</strong>
+                            @race.DistanceKm km
+                        </p>
+
+                        <a asp-controller="Home"
+                           asp-action="Details"
+                           asp-route-id="@race.EventID"
+                           class="btn-raceday">
+                            View Event
+                        </a>
+                    </div>
+
+                </article>
+            }
+        </div>
+    }
+
+</section>

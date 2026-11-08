@@ -1,0 +1,123 @@
+﻿
+@model RaceDay.Mvc.Models.ResultCreateViewModel
+
+@{
+    ViewData["Title"] = "Record Race Result";
+
+    var enrolments =
+        ViewBag.Enrolments as List<RaceDay.Mvc.Models.EnrolmentDetailsViewModel>
+        ?? new List<RaceDay.Mvc.Models.EnrolmentDetailsViewModel>();
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">RACEDAY MANAGEMENT</span>
+    <h1>Record Race Result</h1>
+    <p>Enter a participant's finishing time and race position.</p>
+</section>
+
+<section class="explore-events">
+
+    <div class="card p-4 shadow-sm">
+
+        <form asp-controller="Organiser"
+              asp-action="CreateResult"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3">
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="EnrolmentId"
+                       class="form-label">
+                    Select Participant and Race
+                </label>
+
+                <select asp-for="EnrolmentId"
+                        class="form-select">
+
+                    <option value="0">
+                        -- Select Participant Enrolment --
+                    </option>
+
+                    @foreach (var enrolment in enrolments)
+                    {
+                        <option value="@enrolment.EnrolmentID">
+                            @enrolment.ParticipantName -
+                            @enrolment.EventName -
+                            @enrolment.CategoryName
+                        </option>
+                    }
+
+                </select>
+
+                <span asp-validation-for="EnrolmentId"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="FinishTime"
+                       class="form-label">
+                    Finishing Time
+                </label>
+
+                <input asp-for="FinishTime"
+                       class="form-control"
+                       type="text"
+                       placeholder="Example: 03:45:20" />
+
+                <small class="text-muted">
+                    Enter the time in HH:MM:SS format.
+                </small>
+
+                <span asp-validation-for="FinishTime"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="Position"
+                       class="form-label">
+                    Finishing Position
+                </label>
+
+                <input asp-for="Position"
+                       class="form-control"
+                       type="number"
+                       min="1"
+                       placeholder="Example: 1" />
+
+                <span asp-validation-for="Position"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Save Race Result
+            </button>
+
+            <a asp-controller="Organiser"
+               asp-action="Results"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

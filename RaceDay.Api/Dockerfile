@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["RaceDay.Api/RaceDay.Api.csproj", "RaceDay.Api/"]
+COPY ["RaceDay.Contracts/RaceDay.Contracts.csproj", "RaceDay.Contracts/"]
 RUN dotnet restore "./RaceDay.Api/RaceDay.Api.csproj"
 COPY . .
 WORKDIR "/src/RaceDay.Api"

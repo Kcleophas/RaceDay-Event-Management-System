@@ -1,0 +1,135 @@
+﻿@model RaceDay.Mvc.Models.EventViewModel
+
+@using RaceDay.Mvc.Models
+
+@{
+    ViewData["Title"] = "Event Details";
+    var categories = ViewBag.Categories as List<CategoryViewModel>
+                     ?? new List<CategoryViewModel>();
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">YOUR NEXT CHALLENGE</span>
+    <h1>@Model.EventName</h1>
+    <p>Everything you need to know about this race event.</p>
+</section>
+
+<section class="explore-events">
+
+    <div class="event-card">
+
+        <div class="event-card-top">
+            <span>@Model.EventType</span>
+            <span>@Model.DistanceKm km</span>
+        </div>
+
+        <div class="event-card-body">
+
+            <h2>@Model.EventName</h2>
+
+            <p>
+                <strong>Event ID:</strong>
+                @Model.EventID
+            </p>
+
+            <p>
+                <strong>Event date:</strong>
+                @Model.EventDate.ToString("dd MMMM yyyy")
+            </p>
+
+            <p>
+                <strong>Distance:</strong>
+                @Model.DistanceKm km
+            </p>
+
+            <p>
+                <strong>Race type:</strong>
+                @Model.EventType
+            </p>
+
+            <hr />
+
+            <h3>Join this race</h3>
+            <p>Select your race category below to enrol.</p>
+
+            @if (TempData["EnrolmentSuccess"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["EnrolmentSuccess"]
+                </div>
+            }
+
+            @if (TempData["EnrolmentError"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["EnrolmentError"]
+                </div>
+            }
+
+            @if (Context.Session.GetInt32("UserId") == null)
+            {
+                <p>Please log in before enrolling in a race.</p>
+
+                <a asp-controller="Account"
+                   asp-action="Login"
+                   class="btn-raceday">
+                    Login to Enrol
+                </a>
+            }
+            else if (categories.Count == 0)
+            {
+                <p>No race categories are currently available.</p>
+            }
+            else
+            {
+                <form asp-controller="Home"
+                      asp-action="Enrol"
+                      method="post">
+
+                    <input type="hidden"
+                           name="eventId"
+                           value="@Model.EventID" />
+
+                    <div class="form-group mb-3">
+                        <label for="categoryId">
+                            Select race category
+                        </label>
+
+                        <select id="categoryId"
+                                name="categoryId"
+                                class="form-control"
+                                required>
+
+                            <option value="">
+                                Choose a category
+                            </option>
+
+                            @foreach (var category in categories)
+                            {
+                                <option value="@category.CategoryID">
+                                    @category.CategoryName
+                                </option>
+                            }
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-raceday">
+                        Enrol Now
+                    </button>
+
+                </form>
+            }
+
+            <hr />
+
+            <a asp-controller="Home"
+               asp-action="Explore"
+               class="btn-raceday">
+                Back to Explore
+            </a>
+
+        </div>
+    </div>
+
+</section>

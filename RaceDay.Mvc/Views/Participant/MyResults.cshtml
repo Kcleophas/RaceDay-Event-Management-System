@@ -1,0 +1,101 @@
+﻿
+@model List<RaceDay.Mvc.Models.ParticipantResultsViewModel>
+
+@{
+    ViewData["Title"] = "My Results";
+}
+
+<div class="container mt-4">
+    <div class="mb-4">
+        <h1 class="fw-bold">My Race Results</h1>
+        <p class="text-muted">
+            View your race finishing times and positions.
+        </p>
+    </div>
+
+    @if (ViewBag.ApiError != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ApiError
+        </div>
+    }
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Results Overview</h5>
+            <h2 class="fw-bold text-primary">
+                @Model.Count
+            </h2>
+            <p class="text-muted mb-0">
+                Recorded race results
+            </p>
+        </div>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            You do not have any race results available yet.
+            Check back after your events have been completed.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Event</th>
+                                <th>Finishing Time</th>
+                                <th>Position</th>
+                                <th>Achievement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var result in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>@result.EventName</strong>
+                                    </td>
+                                    <td>@result.FinishTime</td>
+                                    <td>
+                                        <strong>#@result.Position</strong>
+                                    </td>
+                                    <td>
+                                        @if (result.Position == 1)
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                1st Place
+                                            </span>
+                                        }
+                                        else if (result.Position == 2)
+                                        {
+                                            <span class="badge bg-secondary">
+                                                2nd Place
+                                            </span>
+                                        }
+                                        else if (result.Position == 3)
+                                        {
+                                            <span class="badge bg-success">
+                                                3rd Place
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">
+                                                Completed
+                                            </span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

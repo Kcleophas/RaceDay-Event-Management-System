@@ -1,0 +1,69 @@
+
+@{
+    ViewData["Title"] = "Organiser Dashboard";
+}
+
+<section class="explore-header">
+    <span class="hero-eyebrow">RACEDAY MANAGEMENT</span>
+    <h1>Organiser Dashboard</h1>
+    <p>Welcome, @ViewBag.OrganiserName. Manage your race events and participants.</p>
+</section>
+
+<section class="explore-events">
+    <div class="section-heading">
+        <h2>Management Centre</h2>
+        <span>Organiser tools</span>
+    </div>
+
+    <div class="event-grid">
+
+        <article class="event-card">
+            <div class="event-card-body">
+                <h3>Manage Events</h3>
+                <p>Create, update and delete race events.</p>
+                <a asp-controller="Organiser"
+                   asp-action="Events"
+                   class="btn-raceday">
+                    Manage Events
+                </a>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-card-body">
+                <h3>Manage Categories</h3>
+                <p>Manage race distances and categories.</p>
+                <a asp-controller="Organiser"
+                   asp-action="Categories"
+                   class="btn-raceday">
+                    Manage Categories
+                </a>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-card-body">
+                <h3>View Enrolments</h3>
+                <p>View participants registered for races.</p>
+                <a asp-controller="Organiser"
+                   asp-action="Enrolments"
+                   class="btn-raceday">
+                    View Enrolments
+                </a>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-card-body">
+                <h3>Manage Results</h3>
+                <p>Manage race results and participant performance.</p>
+                <a asp-controller="Organiser"
+                   asp-action="Results"
+                   class="btn-raceday">
+                    Manage Results
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
