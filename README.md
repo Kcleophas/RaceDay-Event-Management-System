@@ -1,6 +1,8 @@
 # 🏁 RACEDAY – EVENT MANAGEMENT SYSTEM
 
 ### Programming 2B | Part 3 Portfolio of Evidence
+### Kezia Cleophas
+### ST10483194
 
 <p align="center">
   <strong>A Full-Stack Event Management Application</strong>
