@@ -709,7 +709,7 @@ Overall, RaceDay demonstrates the practical application of software development 
 
 **GitHub Repository:**
 
-https://github.com/Kcleophas/RaceDayApi
+https://github.com/Kcleophas/RaceDay-Event-Management-System
 
 ---
 
